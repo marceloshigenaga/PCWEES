@@ -1,6 +1,10 @@
 from django.db import models
 
 from stdimage.models import StdImageField
+from django.core.validators import MaxValueValidator, MinValueValidator
+from django.conf import settings
+from django.contrib.auth.models import User
+
 class Topico_swebook_1(models.Model):
     nome = models.CharField('Tópico 1', max_length=200)
 
@@ -51,5 +55,15 @@ class Exemplo(models.Model):
     exemplo_imagem_resultado = StdImageField('Imagem para demonstrar um resultado', upload_to='IMG-exemplos', null=True, blank=True)
     exemplo_material_complementar = models.TextField('Material Complementar', null=True, blank=True)
 
+class Avaliacao(models.Model):
+    avaliacao = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    comentario = models.TextField('Comentário', null=True, blank=True)
+    exemplo = models.ForeignKey(Exemplo, on_delete=models.CASCADE)
+    avaliador = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)
 
+    def __str__(self):
+        return self.comentario
 
+    class Meta:
+        verbose_name = 'Avaliação'
+        verbose_name_plural = 'Avaliações'
