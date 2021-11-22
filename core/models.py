@@ -55,6 +55,9 @@ class Exemplo(models.Model):
     exemplo_imagem_resultado = StdImageField('Imagem para demonstrar um resultado', upload_to='IMG-exemplos', null=True, blank=True)
     exemplo_material_complementar = models.TextField('Material Complementar', null=True, blank=True)
 
+    def __str__(self):
+        return self.titulo
+
 class Avaliacao(models.Model):
     avaliacao = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
     comentario = models.TextField('Comentário', null=True, blank=True)
