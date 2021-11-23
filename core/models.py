@@ -11,6 +11,10 @@ class Topico_swebook_1(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name = 'Tópico SWEBOOK 1'
+        verbose_name_plural = 'Tópicos SWEBOOK 1'
+
 class Topico_swebook_2(models.Model):
     nome = models.CharField('Tópico 2', max_length=200)
     associacao = models.ForeignKey(Topico_swebook_1, on_delete=models.CASCADE)
@@ -18,12 +22,20 @@ class Topico_swebook_2(models.Model):
     def __str__(self):
         return self.nome
 
+    class Meta:
+        verbose_name = 'Tópico SWEBOOK 2'
+        verbose_name_plural = 'Tópicos SWEBOOK 2'
+
 class Topico_swebook_3(models.Model):
     nome = models.CharField('Tópico 3', max_length=200)
     associacao = models.ForeignKey(Topico_swebook_2, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.nome
+
+    class Meta:
+        verbose_name = 'Tópico SWEBOOK 3'
+        verbose_name_plural = 'Tópicos SWEBOOK 3'
 
 
 class Exemplo(models.Model):
