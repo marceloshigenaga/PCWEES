@@ -18,7 +18,7 @@ python -m venv env
 pip install -r requirements.txt
 
 # Vá para a pasta do aplicativo Django
-cd core
+cd pcwees
 
 # Setup banco de dados.
 ./manage.py migrate
