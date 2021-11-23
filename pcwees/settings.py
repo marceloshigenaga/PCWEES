@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'core',
     'stdimage',
+    'django_filters',
 ]
 
 MIDDLEWARE = [

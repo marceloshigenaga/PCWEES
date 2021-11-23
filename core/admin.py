@@ -9,14 +9,19 @@ class ExemploAdmin(admin.ModelAdmin):
 @admin.register(Topico_swebook_1)
 class Topico_swebook_1Admin(admin.ModelAdmin):
     list_display = ('nome',)
+    ordering = ('nome',)
 
 @admin.register(Topico_swebook_2)
 class Topico_swebook_2Admin(admin.ModelAdmin):
     list_display = ('nome', 'associacao')
+    list_filter = ('associacao',)
+    ordering = ('nome',)
 
 @admin.register(Topico_swebook_3)
 class Topico_swebook_3Admin(admin.ModelAdmin):
     list_display = ('nome', 'associacao')
+    list_filter = ('associacao',)
+    ordering = ('nome',)
 
 @admin.register(Avaliacao)
 class AvaliacaoAdmin(admin.ModelAdmin):
