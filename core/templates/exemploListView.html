@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
+<!--{% load bootstrap4 %}-->
+{% load bootstrap %}
 {% block content %}
 <div class="content-wrap">
         <div class="main">
             <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12 p-r-0 title-margin-right">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Exemplos Catalogados</h1>
-                            </div>
-                        </div>
-                    </div>
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12 p-r-0 title-margin-right">-->
+<!--                        <div class="page-header">-->
+<!--                            <div class="page-title">-->
+<!--                                <h1>Exemplos Catalogados</h1>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
 
-                </div>
+<!--                </div>-->
                 <!-- /# row -->
                 <section id="main-content">
                     <div class="row">
@@ -23,42 +25,23 @@
                                     <h4>Filtros</h4>
                                 </div>
                                 <div class="card-body">
-                                    <div class="basic-form">
-                                        <form>
-                                            <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-default</code> for Default input.</p>
-                                                <input type="text" class="form-control input-default " placeholder="Input Default">
-                                            </div>
-                                            <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-flat</code> for flat input.</p>
-                                                <input type="text" class="form-control input-flat" placeholder="Input Flat ">
-                                            </div>
-                                            <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-rounded</code> for rounded input.</p>
-                                                <input type="text" class="form-control input-rounded" placeholder="Input Rounded">
-                                            </div>
-                                            <div class="form-group">
-                                                <p class="text-muted m-b-15 f-s-12">Use the input classes on an <code>input-focus</code> for focus input.</p>
-                                                <input type="text" class="form-control input-focus" placeholder="Input Focus">
-                                            </div>
-                                        </form>
-                                        <form action="" method="get">
-                                            {{ filter.form.as_p }}
-                                            <input type="submit"/>
-                                            <a href="{% url 'exemploListView' %}">Limpar filtros</a>
-                                         </form>
-                                    </div>
-
+                                    <form action="" method="get">
+                                        {{ filter.form|bootstrap }}
+                                        <button type="submit" class="btn btn-primary">Filtrar</button>
+                                        <a class="btn btn-danger" href="{% url 'exemploListView' %}">Limpar filtros</a>
+                                     </form>
+                                </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+
+
                     <!-- /# row -->
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-title">
-                                    <h4>Table Basic </h4>
+                                    <h4>Exemplos </h4>
 
                                 </div>
                                 <div class="card-body">
@@ -66,36 +49,20 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>#</th>
-                                                    <th>Name</th>
-                                                    <th>Status</th>
-                                                    <th>Date</th>
-                                                    <th>Price</th>
+                                                    <th>Nome</th>
+                                                    <th>Contexto</th>
+                                                    <th>Linguagem de programação</th>
                                                 </tr>
                                             </thead>
+                                            {% for obj in filter.qs %}
                                             <tbody>
                                                 <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>Kolor Tea Shirt For Man</td>
-                                                    <td><span class="badge badge-primary">Sale</span></td>
-                                                    <td>January 22</td>
-                                                    <td class="color-primary">$21.56</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">2</th>
-                                                    <td>Kolor Tea Shirt For Women</td>
-                                                    <td><span class="badge badge-success">Tax</span></td>
-                                                    <td>January 30</td>
-                                                    <td class="color-success">$55.32</td>
-                                                </tr>
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td>Blue Backpack For Baby</td>
-                                                    <td><span class="badge badge-danger">Extended</span></td>
-                                                    <td>January 25</td>
-                                                    <td class="color-danger">$14.85</td>
+                                                    <td>{{ obj.titulo }}</td>
+                                                    <td>{{ obj.topico_swebook_3 }}</td>
+                                                    <td>{{ obj.projeto_linguagem_programacao }}</td>
                                                 </tr>
                                             </tbody>
+                                            {% endfor %}
                                         </table>
                                     </div>
                                 </div>
@@ -108,16 +75,6 @@
             </div>
         </div>
     </div>
-
-
-
-
-
-    <hr>
-    {% for obj in filter.qs %}
-        {{ obj.titulo }}<br />
-    {% endfor %}
-
 
 
 <!--    <h1>Exemplos cadastrados</h1>-->

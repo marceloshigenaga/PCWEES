@@ -14,10 +14,20 @@ class IndexView(TemplateView):
 #
 #     filter = ExemploFilter()
 
-class ExemploListView(FilterView):
+# class ExemploListView(FilterView):
+#     model = Exemplo
+#     context_object_name = 'exemplo_list'
+#     template_name = 'exemploListView.html'
+#     filterset_class = ExemploFilter
+
+class ExemploListView(ListView):
     model = Exemplo
     context_object_name = 'exemplo_list'
     template_name = 'exemploListView.html'
-    filterset_class = ExemploFilter
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['filter'] = ExemploFilter(self.request.GET, queryset=self.get_queryset())
+        return context
 
 
