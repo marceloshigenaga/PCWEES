@@ -12,6 +12,7 @@
         <a href="{% url 'exemploListView' %}">Limpar filtros</a>
     </form>
 
+    <hr>
     {% for obj in filter.qs %}
         {{ obj.titulo }}<br />
     {% endfor %}
