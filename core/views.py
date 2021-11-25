@@ -1,24 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView
+from django.views.generic import TemplateView, ListView, DetailView
 from .models import Exemplo, Topico_swebook_1, Topico_swebook_2, Topico_swebook_3
 from .filters import ExemploFilter
-from django_filters.views import FilterView
 
 class IndexView(TemplateView):
     template_name = 'index.html'
-
-# class ExemploListView(ListView):
-#     model = Exemplo
-#     template_name = 'exemploListView.html'
-#     context_object_name = 'exemplos'
-#
-#     filter = ExemploFilter()
-
-# class ExemploListView(FilterView):
-#     model = Exemplo
-#     context_object_name = 'exemplo_list'
-#     template_name = 'exemploListView.html'
-#     filterset_class = ExemploFilter
 
 class ExemploListView(ListView):
     model = Exemplo
@@ -30,4 +16,7 @@ class ExemploListView(ListView):
         context['filter'] = ExemploFilter(self.request.GET, queryset=self.get_queryset())
         return context
 
-
+class ExemploDetailView(DetailView):
+    model = Exemplo
+    context_object_name = 'exemplo'
+    template_name = 'exemploDetailView.html'

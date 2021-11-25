@@ -49,17 +49,17 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Nome</th>
+                                                    <th>Título</th>
                                                     <th>Contexto</th>
                                                     <th>Linguagem de programação</th>
                                                 </tr>
                                             </thead>
-                                            {% for obj in filter.qs %}
+                                            {% for exemplo in filter.qs %}
                                             <tbody>
                                                 <tr>
-                                                    <td>{{ obj.titulo }}</td>
-                                                    <td>{{ obj.topico_swebook_3 }}</td>
-                                                    <td>{{ obj.projeto_linguagem_programacao }}</td>
+                                                    <td><a href="{% url 'exemploDetailView' exemplo.pk %}">{{ exemplo.titulo }}</a></td>
+                                                    <td>{{ exemplo.topico_swebook_3 }}</td>
+                                                    <td>{{ exemplo.projeto_linguagem_programacao }}</td>
                                                 </tr>
                                             </tbody>
                                             {% endfor %}

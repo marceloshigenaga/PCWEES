@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12 p-r-0 title-margin-right">
+                        <div class="page-header">
+                            <div class="page-title">
+                                <h1>Autor: {{ exemplo.autor.get_full_name }}</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-title">
+
+                                </div>
+                                <div class="card-body">
+                                    <h3>Dados Gerais</h3>
+                                    <hr>
+                                    <h5 class="font-weight-bold">Título do Exemplo:</h5>
+                                    <p>{{ exemplo.titulo }}</p>
+                                    <h5 class="font-weight-bold">Tópicos do SWEBOK:</h5>
+                                    <p>{{ exemplo.topico_swebook_1 }} > {{ exemplo.topico_swebook_2 }} > {{ exemplo.topico_swebook_3 }}</p>
+                                    <h5 class="font-weight-bold">Outros Tópicos:</h5>
+                                    <p>{{ exemplo.outros_topicos }}</p>
+                                    <h5 class="font-weight-bold">Tags:</h5>
+                                    <p>{{ exemplo.tag_1 }} / {{ exemplo.tag_2 }} / {{ exemplo.tag_3 }}</p>
+                                    <h5 class="font-weight-bold">Conhecimento Prévio e Restrições de Uso:</h5>
+                                    <p>{{ exemplo.conhecimento_previo_ou_restricoes }}</p>
+                                    <h5 class="font-weight-bold">Sugestões de Uso:</h5>
+                                    <p>{{ exemplo.sugestores_de_uso }}</p>
+                                    <br>
+                                    <h3>Dados do projeto de Software Livre</h3>
+                                    <hr>
+                                    <h5 class="font-weight-bold">Nome:</h5>
+                                    <p>{{ exemplo.projeto_nome }}</p>
+                                    <h5 class="font-weight-bold">Descrição:</h5>
+                                    <p>{{ exemplo.projeto_descricao }}</p>
+                                    <h5 class="font-weight-bold">Linguagem de Programação:</h5>
+                                    <p>{{ exemplo.projeto_linguagem_programacao }}</p>
+                                    <h5 class="font-weight-bold">Link do Projeto:</h5>
+                                    <p><a href="{{ exemplo.projeto_link }}">{{ exemplo.projeto_link }}</a></p>
+                                    <h5 class="font-weight-bold">Link do Exemplo:</h5>
+                                    <p><a href="{{ exemplo.projeto_link_exemplo }}">{{ exemplo.projeto_link_exemplo }}</a></p>
+                                    <h5 class="font-weight-bold">Data de Extração do Exemplo:</h5>
+                                    <p>{{ exemplo.projeto_data_extracao_exemplo }}</p>
+                                    <br>
+                                    <h3>Dados do Exemplo</h3>
+                                    <hr>
+                                    <h5 class="font-weight-bold">Descrição Conceitual do Problema:</h5>
+                                    <p>{{ exemplo.exemplo_descicao_conceitual_problema|linebreaks }}</p>
+                                    <h5 class="font-weight-bold">Ocorrência do Problema no Projeto:</h5>
+                                    <p>{{ exemplo.exemplo_ocorrencia_problema|linebreaks }}</p>
+                                    {% if exemplo.exemplo_imagem_problema %}
+                                        <p><img class="img-fluid" src="{{ exemplo.exemplo_imagem_problema.url }}"></p>
+                                    {% endif %}
+                                    <h5 class="font-weight-bold">Descrição da Solução e Etapas da Solução:</h5>
+                                    <p>{{ exemplo.exemplo_descricao_solucao|linebreaks }}</p>
+                                    {% if exemplo.exemplo_imagem_solucao %}
+                                        <p><img class="img-fluid" src="{{ exemplo.exemplo_imagem_solucao.url }}"></p>
+                                    {% endif %}
+                                    <h5 class="font-weight-bold">Resultado:</h5>
+                                    <p>{{ exemplo.exemplo_resultado|linebreaks }}</p>
+                                    {% if exemplo.exemplo_imagem_resultado %}
+                                        <p><img class="img-fluid" src="{{ exemplo.exemplo_imagem_resultado.url }}"></p>
+                                    {% endif %}
+                                    <h5 class="font-weight-bold">Material Complementar:</h5>
+                                    <p>{{ exemplo.exemplo_material_complementar|linebreaks }}</p>
+
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}
