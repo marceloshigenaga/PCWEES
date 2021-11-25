@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
-<!--{% load bootstrap4 %}-->
-{% load bootstrap %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div class="content-wrap">
         <div class="main">
@@ -26,7 +25,7 @@
                                 </div>
                                 <div class="card-body">
                                     <form action="" method="get">
-                                        {{ filter.form|bootstrap }}
+                                        {{ filter.form|crispy }}
                                         <button type="submit" class="btn btn-primary">Filtrar</button>
                                         <a class="btn btn-danger" href="{% url 'exemploListView' %}">Limpar filtros</a>
                                      </form>
@@ -77,11 +76,5 @@
     </div>
 
 
-<!--    <h1>Exemplos cadastrados</h1>-->
-<!--    {% for exemplo in exemplos %}-->
-<!--        <li>{{ exemplo.titulo }} - {{ exemplo.topico_swebook_1}} - {{ exemplo.topico_swebook_2}} - {{ exemplo.topico_swebook_3}}</li>-->
-<!--    {% empty %}-->
-<!--        <li>Nenhum exemplo cadastrado</li>-->
-<!--    {% endfor %}-->
 
 {% endblock %}
