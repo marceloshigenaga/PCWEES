@@ -3,105 +3,174 @@
 
 {% block content %}
 <div class="content-wrap">
-        <div class="main">
-            <div class="container-fluid">
+    <div class="main">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12 p-r-0 title-margin-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <h1>Padrão de catalogação dos Worked Examples</h1>
+                            <p>Esta página contém um padrão para catalogação de worked examples. O padrão visa a
+                                extração e organização de informações para catalogação de worked examples extraídos de
+                                projetos de Software Livre (SL), para o ensino de Engenharia de Software. Esse padrão
+                                foi desenvolvido com o intuito de facilitar, padronizar, e dar apoio aos professores no
+                                processo de catalogar no portal os worked examples extraídos de projetos de SL.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- /# row -->
+            <section id="main-content">
                 <div class="row">
-                    <div class="col-lg-12 p-r-0 title-margin-right">
-                        <div class="page-header">
-                            <div class="page-title">
-                                <h1>Padrão de catalogação dos Worked Examples</h1>
-                                <p>Esta página contém um padrão para catalogação de worked examples. O padrão visa a extração e organização de informações para catalogação de worked examples extraídos de projetos de Software Livre (SL), para o ensino de Engenharia de Software. Esse padrão foi desenvolvido com o intuito de facilitar, padronizar, e dar apoio aos professores no processo de catalogar no portal os worked examples extraídos de projetos de SL.</p>
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-title">
+
+                            </div>
+                            <div class="card-body">
+                                <h5>1. Nome</h5>
+                                <p>Worked examples extraídos de projetos de software livre para o ensino de Engenharia
+                                    de Software</p>
+                                <h5>2. Intenção</h5>
+                                <p>Catalogar worked examples extraídos de projetos de Software Livre (SL) para apoiar o
+                                    ensino de Engenharia de Software.</p>
+                                <h5>3. Problema</h5>
+                                <p>Como catalogar um worked examples extraído a partir de projetos de software livre, de
+                                    maneira que ele possa ser útil para o ensino de conteúdos da Engenharia de
+                                    Software?</p>
+                                <h5>Forças</h5>
+                                <p>- As informações disponíveis nas comunidades de SL não estão organizadas de maneira
+                                    que os professores e alunos possam facilmente se beneficiar.</p>
+                                <p>- Demanda de tempo para preparação das aulas baseadas em projetos de SL.</p>
+                                <p>- Falta de suporte de algumas comunidades de SL.</p>
+                                <p>- Quais informações devem compor um worked examples para que ele seja útil no ensino
+                                    de conteúdos da Engenharia de Software.</p>
+                                <h5>4. Solução</h5>
+                                <p>Para Atkinson et al. (2003) um worked examples consiste basicamente na formulação de
+                                    um problema, nas etapas de solução e na resposta final. Partindo disso, criamos uma
+                                    estrutura para guiar os professores na catalogação dos eworked examples para apoiar
+                                    o ensino de Engenharia de Software, seguindo os seguintes passos: </p>
+                                <p>Passo 1 – Definir problema: Nesse passo o professor deverá estudar e definir que tipo
+                                    de problema deseja exemplificar no worked examples.</p>
+                                <p>Passo 2 – Selecionar projeto: Deve ser escolhido o projeto de SL do qual o exemplo
+                                    será extraído. Para esse passo recomenda-se o uso dos padrões de seleção de
+                                    projetos, desenvolvidos e apresentados por Terceiro et al. (2012).</p>
+                                <p>Passo 3 – Extrair informações do exemplo: Deverão ser extraídas as informações
+                                    relativas ao exemplo, ou seja, o professor deverá encontrar dentro do projeto de SL
+                                    uma situação na qual se aplique o problema por ele definido, e assim, retirar as
+                                    informações pertinentes a esse problema. Essas informações podem estar espalhadas
+                                    por vários locais de um projeto, como nos Commits, no ramo principal do repositório,
+                                    banco de dados de defeitos e contribuições rejeitadas.</p>
+                                <p>O professor deverá entender como o problema foi resolvido, e quais técnicas foram
+                                    aplicadas, e utilizar essa resolução no seu exemplo. O professor terá também a opção
+                                    de procurar por exemplos errôneos. Essa opção deve ser considerada quando o intuito
+                                    for construir um worked examples incorreto, que demonstre a aplicação incorreta de
+                                    determinada técnica ou conceito.</p>
+                                <p>Passo 4 – Extrair informações do projeto: Nesse passo serão extraídas as informações
+                                    simples pertinentes ao projeto de SL selecionado, sendo elas: Nome do projeto,
+                                    descrição, link do repositório, link do exemplo, e data de extração do exemplo. Essa
+                                    atividade não trará dificuldades ao professor, visto que, as informações a serem
+                                    extraídas nesta etapa, geralmente estão bem aparentes no projeto.</p>
+                                <p>Passo 5 – Estruturar informações para catalogação: Após a coleta de informações
+                                    pertinentes ao exemplo e ao projeto de SL, realizadas nos passos 3 e 4, deve-se
+                                    estruturar as informações para catalogar o worked examples. Para isso criamos uma
+                                    estrutura genérica dividida em três partes: dados gerais, dados do projeto de SL e
+                                    dados do worked example. Essa estrutura visa organizar as informações, criando um
+                                    artefato, que possa contribuir para o aprendizado. Abaixo, segue a estrutura.</p>
+
+                                <h3>Dados Gerais</h3>
+                                <hr>
+
+                                <h5 class="font-weight-bold">Título do Exemplo:</h5>
+                                <p>O título do exemplo deve ser significativo, ou seja, ao ler o indivíduo já deverá
+                                    identificar qual o problema que será abordado no worked example. Isso será
+                                    importante também para guiar o professor na busca pelos worked examples, facilitando
+                                    a procura dentro do portal de catalogação, uma vez que, esse será o campo de
+                                    identificação do worked example.</p>
+                                <h5 class="font-weight-bold">Tópicos do SWEBOK:</h5>
+                                <p>A estrutura do portal de catalogação será baseada em uma classificação partindo do
+                                    guia Software Engineering Body of Knowledge (SWEBOK), um guia para o corpo de
+                                    conhecimento em Engenharia de Software. Neste item deve ser indicado o tópico e os
+                                    subtópicos para se chegar ao worked example. Esse elemento servirá também como guia
+                                    para os professores buscarem worked examples catalogados, para determinados
+                                    contextos.</p>
+                                <h5 class="font-weight-bold">Outros Tópicos:</h5>
+                                <p>Tópico livre para apresentar outras subáreas que não estejam especificadas nos
+                                    tópicos do guia SWEBOK.</p>
+                                <h5 class="font-weight-bold">Tags:</h5>
+                                <p>Neste elemento poderão ser adicionadas até 3 tags relacionadas a aspectos técnicos e
+                                    pedagógicos do worked example. A base inicial das tags foi obtida através do dump de
+                                    dados do Stack Overflow, disponibilizado por Baltes et al. (2018), no entanto, ao
+                                    catalogar os worked examples, os professores poderão adicionar novas tags, que não
+                                    estejam disponíveis no banco de dados, tanto relacionadas a atributos técnicos, como
+                                    também pedagógicos.</p>
+                                <h5 class="font-weight-bold">Conhecimento Prévio e Restrições de Uso:</h5>
+                                <p>Neste item deve ser descrito se será necessário algum conhecimento específico para o
+                                    entendimento do worked example, como o conhecimento de uma linguagem de programação,
+                                    de modelagem, ou até mesmo o conhecimento de uma ferramenta específica. Poderá ser
+                                    descrito também possíveis restrições de uso para o exemplo, situações ou tópicos nos
+                                    quais o uso do exemplo não se aplicaria.</p>
+                                <h5 class="font-weight-bold">Sugestões de Uso:</h5>
+                                <p>Sugestões de Uso: Neste elemento deverão ser apresentadas informações sobre como
+                                    usar, quando usar, e com quem usar o worked example. Poderão ser apresentadas
+                                    sugestões sobre como utilizar o worked example em aula, quais conteúdos poderiam ser
+                                    abordados, e formas de se trabalhar com o worked example.</p>
+                                <br>
+                                <h3>Dados do projeto de Software Livre</h3>
+                                <hr>
+                                <h5 class="font-weight-bold">Nome:</h5>
+                                <p>Nome do projeto de software livre do qual o exemplo foi extraído.</p>
+                                <h5 class="font-weight-bold">Descrição:</h5>
+                                <p>Uma breve descrição do escopo do projeto.</p>
+                                <h5 class="font-weight-bold">Linguagem de Programação:</h5>
+                                <p>Linguagem de Programação utilizada no projeto</p>
+                                <h5 class="font-weight-bold">Link do Projeto:</h5>
+                                <p>Link do repositório do projeto.</p>
+                                <h5 class="font-weight-bold">Link do Exemplo:</h5>
+                                <p>Link do local do projeto de onde o exemplo foi retirado.</p>
+                                <h5 class="font-weight-bold">Data de Extração do Exemplo:</h5>
+                                <p>Data em que os dados do worked example foram retirados do repositório do projeto.</p>
+                                <br>
+                                <h3>Dados do Exemplo</h3>
+                                <hr>
+                                <h5 class="font-weight-bold">Descrição Conceitual do Problema:</h5>
+                                <p>Explicar de forma conceitual o problema que será demonstrado no worked example, assim
+                                    como possíveis técnicas utilizadas para resolver tal problema. Deve-se focar apenas
+                                    na explicação conceitual, ou seja, explicar o problema de uma forma genérica, sem
+                                    aplicar a nenhum contexto. A explicação deve se basear em uma linguagem de fácil
+                                    entendimento, simples, clara e sem espaço para possíveis ambiguidades.</p>
+                                <h5 class="font-weight-bold">Ocorrência do Problema no Projeto:</h5>
+                                <p>Explicar a ocorrência do problema descrito no campo de “Descrição Conceitual do
+                                    Problema”. Nesse campo deverá ser demostrado como o problema ocorreu no projeto de
+                                    SL abordado, focando apenas em explicar o contexto do problema no projeto, não dando
+                                    informações sobre a solução.</p>
+
+                                <h5 class="font-weight-bold">Descrição da Solução e Etapas da Solução:</h5>
+                                <p>Primeiro deve ser apresentada a solução do problema, ou seja, explicar como o
+                                    problema descrito no campo de “Ocorrência do Problema no Projeto” foi resolvido no
+                                    contexto do projeto, uma descrição breve da solução, quais técnicas e conceitos
+                                    foram aplicados para resolver o problema. Em seguida devem ser apresentados os
+                                    passos para chegar a resolução do problema. O passo a passo deve ser o mais
+                                    detalhado possível para que o estudante entenda como se chegou a solução do
+                                    problema.</p>
+
+                                <h5 class="font-weight-bold">Resultado:</h5>
+                                <p>Apresentar a saída gerada pelas etapas de solução. O resultado pode ser apresentado
+                                    através de diagramas, imagens, códigos, ou até mesmo um texto explicativo,
+                                    demonstrando onde as etapas de solução levaram.</p>
+
+                                <h5 class="font-weight-bold">Material Complementar:</h5>
+                                <p>Indicar materiais que possam ser complementares ao estudo do worked example, caso
+                                    existam.</p>
                             </div>
                         </div>
                     </div>
-
                 </div>
-                <!-- /# row -->
-                <section id="main-content">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="card">
-                                <div class="card-title">
-
-                                </div>
-                                <div class="card-body">
-                                    <h5>1. Nome</h5>
-                                    <p>Worked examples extraídos de projetos de software livre para o ensino de Engenharia de Software</p>
-                                    <h5>2. Intenção</h5>
-                                    <p>Catalogar worked examples extraídos de projetos de Software Livre (SL) para apoiar o ensino de Engenharia de Software.</p>
-                                    <h5>3. Problema</h5>
-                                    <p>Como catalogar um worked examples extraído a partir de projetos de software livre, de maneira que ele possa ser útil para o ensino de conteúdos da Engenharia de Software?</p>
-                                    <h5>Forças</h5>
-                                    <p>- As informações disponíveis nas comunidades de SL não estão organizadas de maneira que os professores e alunos possam facilmente se beneficiar.</p>
-                                    <p>- Demanda de tempo para preparação das aulas baseadas em projetos de SL.</p>
-                                    <p>- Falta de suporte de algumas comunidades de SL.</p>
-                                    <p>- Quais informações devem compor um worked examples para que ele seja útil no ensino de conteúdos da Engenharia de Software.</p>
-                                    <h5>4. Solução</h5>
-                                    <p>Para Atkinson et al. (2003) um worked examples consiste basicamente na formulação de um problema, nas etapas de solução e na resposta final. Partindo disso, criamos uma estrutura para guiar os professores na catalogação dos eworked examples para apoiar o ensino de Engenharia de Software, seguindo os seguintes passos: </p>
-                                    <p>Passo 1 – Definir problema: Nesse passo o professor deverá estudar e definir que tipo de problema deseja exemplificar no worked examples.</p>
-                                    <p>Passo 2 – Selecionar projeto: Deve ser escolhido o projeto de SL do qual o exemplo será extraído. Para esse passo recomenda-se o uso dos padrões de seleção de projetos, desenvolvidos e apresentados por Terceiro et al. (2012).</p>
-                                    <p>Passo 3 – Extrair informações do exemplo: Deverão ser extraídas as informações relativas ao exemplo, ou seja, o professor deverá encontrar dentro do projeto de SL uma situação na qual se aplique o problema por ele definido, e assim, retirar as informações pertinentes a esse problema. Essas informações podem estar espalhadas por vários locais de um projeto, como nos Commits, no ramo principal do repositório, banco de dados de defeitos e contribuições rejeitadas.</p>
-                                    <p>O professor deverá entender como o problema foi resolvido, e quais técnicas foram aplicadas, e utilizar essa resolução no seu exemplo. O professor terá também a opção de procurar por exemplos errôneos. Essa opção deve ser considerada quando o intuito for construir um worked examples incorreto, que demonstre a aplicação incorreta de determinada técnica ou conceito.</p>
-                                    <p>Passo 4 – Extrair informações do projeto: Nesse passo serão extraídas as informações simples pertinentes ao projeto de SL selecionado, sendo elas: Nome do projeto, descrição, link do repositório, link do exemplo, e data de extração do exemplo. Essa atividade não trará dificuldades ao professor, visto que, as informações a serem extraídas nesta etapa, geralmente estão bem aparentes no projeto.</p>
-                                    <p>Passo 5 – Estruturar informações para catalogação: Após a coleta de informações pertinentes ao exemplo e ao projeto de SL, realizadas nos passos 3 e 4, deve-se estruturar as informações para catalogar o worked examples. Para isso criamos uma estrutura genérica dividida em três partes: dados gerais, dados do projeto de SL e dados do worked example. Essa estrutura visa organizar as informações, criando um artefato, que possa contribuir para o aprendizado. Abaixo, segue a estrutura.</p>
-
-                                    <h3>Dados Gerais</h3>
-                                    <hr>
-
-                                    <h5 class="font-weight-bold">Título do Exemplo:</h5>
-                                    <p>O título do exemplo deve ser significativo, ou seja, ao ler o indivíduo já deverá identificar qual o problema que será abordado no worked example. Isso será importante também para guiar o professor na busca pelos worked examples, facilitando a procura dentro do portal de catalogação, uma vez que, esse será o campo de identificação do worked example.</p>
-                                    <h5 class="font-weight-bold">Tópicos do SWEBOK:</h5>
-                                    <p>A estrutura do portal de catalogação será baseada em uma classificação partindo do guia Software Engineering Body of Knowledge (SWEBOK), um guia para o corpo de conhecimento em Engenharia de Software. Neste item deve ser indicado o tópico e os subtópicos para se chegar ao worked example. Esse elemento servirá também como guia para os professores buscarem worked examples catalogados, para determinados contextos.</p>
-                                    <h5 class="font-weight-bold">Outros Tópicos:</h5>
-                                    <p>Tópico livre para apresentar outras subáreas que não estejam especificadas nos tópicos do guia SWEBOK.</p>
-                                    <h5 class="font-weight-bold">Tags:</h5>
-                                    <p>Neste elemento poderão ser adicionadas até 3 tags relacionadas a aspectos técnicos e pedagógicos do worked example. A base inicial das tags foi obtida através do dump de dados do Stack Overflow, disponibilizado por Baltes et al. (2018), no entanto, ao catalogar os worked examples, os professores poderão adicionar novas tags, que não estejam disponíveis no banco de dados, tanto relacionadas a atributos técnicos, como também pedagógicos.</p>
-                                    <h5 class="font-weight-bold">Conhecimento Prévio e Restrições de Uso:</h5>
-                                    <p>Neste item deve ser descrito se será necessário algum conhecimento específico para o entendimento do worked example, como o conhecimento de uma linguagem de programação, de modelagem, ou até mesmo o conhecimento de uma ferramenta específica. Poderá ser descrito também possíveis restrições de uso para o exemplo, situações ou tópicos nos quais o uso do exemplo não se aplicaria.</p>
-                                    <h5 class="font-weight-bold">Sugestões de Uso:</h5>
-                                    <p>Sugestões de Uso: Neste elemento deverão ser apresentadas informações sobre como usar, quando usar, e com quem usar o worked example. Poderão ser apresentadas sugestões sobre como utilizar o worked example em aula, quais conteúdos poderiam ser abordados, e formas de se trabalhar com o worked example.</p>
-                                    <br>
-                                    <h3>Dados do projeto de Software Livre</h3>
-                                    <hr>
-                                    <h5 class="font-weight-bold">Nome:</h5>
-                                    <p>Nome do projeto de software livre do qual o exemplo foi extraído.</p>
-                                    <h5 class="font-weight-bold">Descrição:</h5>
-                                    <p>Uma breve descrição do escopo do projeto.</p>
-                                    <h5 class="font-weight-bold">Linguagem de Programação:</h5>
-                                    <p>Linguagem de Programação utilizada no projeto</p>
-                                    <h5 class="font-weight-bold">Link do Projeto:</h5>
-                                    <p>Link do repositório do projeto.</p>
-                                    <h5 class="font-weight-bold">Link do Exemplo:</h5>
-                                    <p>Link do local do projeto de onde o exemplo foi retirado.</p>
-                                    <h5 class="font-weight-bold">Data de Extração do Exemplo:</h5>
-                                    <p>Data em que os dados do worked example foram retirados do repositório do projeto.</p>
-                                    <br>
-                                    <h3>Dados do Exemplo</h3>
-                                    <hr>
-                                    <h5 class="font-weight-bold">Descrição Conceitual do Problema:</h5>
-                                    <p>Explicar de forma conceitual o problema que será demonstrado no worked example, assim como possíveis técnicas utilizadas para resolver tal problema. Deve-se focar apenas na explicação conceitual, ou seja, explicar o problema de uma forma genérica, sem aplicar a nenhum contexto. A explicação deve se basear em uma linguagem de fácil entendimento, simples, clara e sem espaço para possíveis ambiguidades.</p>
-                                    <h5 class="font-weight-bold">Ocorrência do Problema no Projeto:</h5>
-                                    <p>Explicar a ocorrência do problema descrito no campo de “Descrição Conceitual do Problema”. Nesse campo deverá ser demostrado como o problema ocorreu no projeto de SL abordado, focando apenas em explicar o contexto do problema no projeto, não dando informações sobre a solução.</p>
-
-                                    <h5 class="font-weight-bold">Descrição da Solução e Etapas da Solução:</h5>
-                                    <p>Primeiro deve ser apresentada a solução do problema, ou seja, explicar como o problema descrito no campo de “Ocorrência do Problema no Projeto” foi resolvido no contexto do projeto, uma descrição breve da solução, quais técnicas e conceitos foram aplicados para resolver o problema. Em seguida devem ser apresentados os passos para chegar a resolução do problema. O passo a passo deve ser o mais detalhado possível para que o estudante entenda como se chegou a solução do problema.</p>
-
-                                    <h5 class="font-weight-bold">Resultado:</h5>
-                                    <p>Apresentar a saída gerada pelas etapas de solução. O resultado pode ser apresentado através de diagramas, imagens, códigos, ou até mesmo um texto explicativo, demonstrando onde as etapas de solução levaram.</p>
-
-                                    <h5 class="font-weight-bold">Material Complementar:</h5>
-                                    <p>Indicar materiais que possam ser complementares ao estudo do worked example, caso existam.</p>
-
-                                </div>
-                                </div>
-                            </div>
-                        </div>
-
-                </section>
-            </div>
+            </section>
         </div>
     </div>
-
+</div>
 
 
 {% endblock %}
