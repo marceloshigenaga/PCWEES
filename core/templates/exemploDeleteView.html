@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+<!--                <div class="row">-->
+<!--                    <div class="col-lg-12 p-r-0 title-margin-right">-->
+<!--                        <div class="page-header">-->
+<!--                            <div class="page-title">-->
+<!--                                <h1>Exemplos Catalogados</h1>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                </div>-->
+                <!-- /# row -->
+                <section id="main-content">
+
+
+
+                    <!-- /# row -->
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-title">
+
+                                </div>
+                                <div class="card-body">
+                                    <form method="post">
+                                        {% csrf_token %}
+                                        <h4 class="text-danger">Tem certeza que desaja excluir o exemplo "{{ object.titulo }}"? </h4>
+                                        <button type="submit"class="btn btn-danger">Exluir</button>
+                                        <a href="{% url 'meusExemplosListView' %}"><button type="button"class="btn btn-warning">Cancelar</button></a>
+
+                                    </form>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </section>
+            </div>
+        </div>
+    </div>
+
+
+
+{% endblock %}

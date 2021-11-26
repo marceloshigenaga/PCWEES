@@ -41,7 +41,7 @@
                                             <tbody>
                                                 <tr>
                                                     <td><a href="{% url 'exemploDetailView' exemplo.pk %}">{{ exemplo.titulo }}</a></td>
-                                                    <td><a href="{% url 'exemploUpdateView' exemplo.pk %}"><button type="button"class="btn btn-warning">Alterar</button></a> <a href="{% url 'exemploUpdateView' exemplo.pk %}"><button type="button"class="btn btn-danger">Exluir</button></a></td>
+                                                    <td><a href="{% url 'exemploUpdateView' exemplo.pk %}"><button type="button"class="btn btn-warning">Alterar</button></a> <a href="{% url 'exemploDeleteView' exemplo.pk %}"><button type="button"class="btn btn-danger">Exluir</button></a></td>
 
                                                 </tr>
                                             </tbody>

@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render
-from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView
+from django.views.generic import TemplateView, ListView, DetailView, CreateView, UpdateView, DeleteView
 from .models import Exemplo
 from .filters import ExemploFilter
 from django.urls import reverse_lazy
@@ -48,6 +48,11 @@ class ExemploUpdateView(LoginRequiredMixin, UpdateView):
     def form_valid(self, form):
         form.instance.autor = self.request.user
         return super().form_valid(form)
+
+class ExemploDeleteView(LoginRequiredMixin, DeleteView):
+    model = Exemplo
+    template_name = 'exemploDeleteView.html'
+    success_url = reverse_lazy('meusExemplosListView')
 
 class MeusExemplosListView(LoginRequiredMixin, ListView):
     model = Exemplo
