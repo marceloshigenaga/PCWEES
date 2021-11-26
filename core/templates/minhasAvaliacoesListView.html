@@ -34,7 +34,7 @@
                                             {% endfor %}
                                         </div>
                                     {% endif %}
-                                    <h4>Meus Exemplos Cadastrados </h4>
+                                    <h4>Minhas avaliações cadastradas: </h4>
 
                                 </div>
                                 <div class="card-body">
@@ -42,16 +42,19 @@
                                         <table class="table">
                                             <thead>
                                                 <tr>
-                                                    <th>Título</th>
+                                                    <th>Título do Exemplo</th>
+                                                    <th>Avaliação</th>
+                                                    <th>Comentário</th>
                                                     <th>Operação</th>
                                                 </tr>
                                             </thead>
-                                            {% for exemplo in exemplo_list %}
+                                            {% for avaliacao in avaliacao_list %}
                                             <tbody>
                                                 <tr>
-                                                    <td><a href="{% url 'exemploDetailView' exemplo.pk %}">{{ exemplo.titulo }}</a></td>
-                                                    <td><a href="{% url 'exemploUpdateView' exemplo.pk %}"><button type="button"class="btn btn-warning">Alterar</button></a> <a href="{% url 'exemploDeleteView' exemplo.pk %}"><button type="button"class="btn btn-danger">Exluir</button></a></td>
-
+                                                    <td>{{ avaliacao.exemplo }}</td>
+                                                    <td>{{ avaliacao.avaliacao }}</td>
+                                                    <td>{{ avaliacao.comentario }}</td>
+                                                    <td><a href="{% url 'avaliacaoUpdateView' avaliacao.pk %}"><button type="button"class="btn btn-warning">Alterar</button></a> <a href="{% url 'avaliacaoDeleteView' avaliacao.pk %}"><button type="button"class="btn btn-danger">Exluir</button></a></td>
                                                 </tr>
                                             </tbody>
                                             {% endfor %}

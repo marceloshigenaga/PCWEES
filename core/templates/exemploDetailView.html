@@ -77,9 +77,62 @@
                                     <p>{{ exemplo.exemplo_material_complementar|linebreaks }}</p>
 
                                 </div>
+                                <div class="card-footer">
+                                    <h1>Avaliações</h1>
+
+                                    {% if not avaliacoes %}
+                                        <p>Esse exemplo ainda não foi avaliado</p>
+                                    {% endif %}
+
+                                    {% for avaliacao in avaliacoes %}
+                                        {% if avaliacao.avaliacao == 1 %}
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                        {% endif %}
+                                        {% if avaliacao.avaliacao == 2 %}
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                        {% endif %}
+                                        {% if avaliacao.avaliacao == 3 %}
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                        {% endif %}
+                                        {% if avaliacao.avaliacao == 4 %}
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #d3d3d3;">★</span>
+                                        {% endif %}
+                                        {% if avaliacao.avaliacao == 5 %}
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                            <span class="rating1" style="margin-right: 3px; font-size:30px; color: #ffc78e;">★</span>
+                                        {% endif %}
+                                        <p>Comentário: {{avaliacao.comentario}}</p>
+                                        <p>Autor: {{avaliacao.avaliador.get_full_name}}</p>
+                                        <hr>
+
+                                    {% endfor %}
+
+                                    <a href="{% url 'avaliacaoCreateView' exemplo.pk %}">
+                                        <button type="button" class="btn btn-primary btn-flat btn-addon m-b-10 m-l-5"><i class="ti-star"></i>Avaliar Exemplo</button>
+                                    </a>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
                 </section>
             </div>

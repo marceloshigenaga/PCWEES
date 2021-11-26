@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'core',
     'stdimage',
     'django_filters',
-
     'crispy_forms',
 ]
 

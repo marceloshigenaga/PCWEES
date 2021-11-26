@@ -1,9 +1,6 @@
 from django.db import models
-
 from stdimage.models import StdImageField
-from django.core.validators import MaxValueValidator, MinValueValidator
 from django.conf import settings
-from django.contrib.auth.models import User
 
 class Topico_swebook_1(models.Model):
     nome = models.CharField('Tópico 1', max_length=200)
@@ -39,7 +36,6 @@ class Topico_swebook_3(models.Model):
 
 
 class Exemplo(models.Model):
-
     titulo = models.CharField('Título', max_length=200)
     topico_swebook_1 = models.ForeignKey(Topico_swebook_1, on_delete=models.RESTRICT)
     topico_swebook_2 = models.ForeignKey(Topico_swebook_2, on_delete=models.RESTRICT)
@@ -67,14 +63,20 @@ class Exemplo(models.Model):
     exemplo_imagem_resultado = StdImageField('Imagem para demonstrar um resultado', upload_to='IMG-exemplos', null=True, blank=True)
     exemplo_material_complementar = models.TextField('Material Complementar', null=True, blank=True)
 
-    #não tinha no UML
     autor = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.RESTRICT)
 
     def __str__(self):
         return self.titulo
 
 class Avaliacao(models.Model):
-    avaliacao = models.PositiveIntegerField(validators=[MinValueValidator(1), MaxValueValidator(5)])
+    NOTAS = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+    avaliacao = models.PositiveIntegerField(choices=NOTAS)
     comentario = models.TextField('Comentário', null=True, blank=True)
     exemplo = models.ForeignKey(Exemplo, on_delete=models.CASCADE)
     avaliador = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE,)

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Exemplo
+from .models import Exemplo, Avaliacao
 
 class ExemploForm(forms.ModelForm):
     class Meta:
@@ -51,6 +51,16 @@ class ExemploForm(forms.ModelForm):
         self.fields['exemplo_material_complementar'].widget.attrs[
             'placeholder'] = 'Indicar materiais que possam ser complementares ao estudo do exemplo, caso existam.'
 
+
+class AvaliacaoForm(forms.ModelForm):
+    class Meta:
+        model = Avaliacao
+        fields = '__all__'
+        exclude = ('exemplo','avaliador')
+
+        labels = {
+            "avaliacao": "Nota da avaliação:",
+        }
 
 
 
