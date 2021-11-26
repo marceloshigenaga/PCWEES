@@ -43,8 +43,7 @@
                                         {% for exemplo in filter.qs %}
                                         <tbody>
                                         <tr>
-                                            <td><a href="{% url 'exemploDetailView' exemplo.pk %}">{{ exemplo.titulo
-                                                }}</a></td>
+                                            <td><a href="{% url 'exemploDetailView' exemplo.pk %}">{{ exemplo.titulo }}</a></td>
                                             <td>{{ exemplo.topico_swebook_3 }}</td>
                                             <td>{{ exemplo.projeto_linguagem_programacao }}</td>
                                         </tr>
