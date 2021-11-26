@@ -1,3 +1,4 @@
+[![PCWEES OtimizES Badge](https://img.shields.io/badge/OtimizES-UEM-blue)](https://otimizes.github.io/index.html)
 [![PCWEES Count Badge](https://sloc.xyz/github/tpipernob/PCWEES/?category=code)](https://github.com/tpipernob/PCWEES/)
 [![PCWEES Count Badge](https://sloc.xyz/github/tpipernob/PCWEES/?category=lines)](https://github.com/tpipernob/PCWEES/)
 [![PCWEES Count Badge](https://sloc.xyz/github/tpipernob/PCWEES/?category=comments)](https://github.com/tpipernob/PCWEES/)
