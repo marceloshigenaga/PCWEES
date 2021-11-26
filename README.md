@@ -3,6 +3,9 @@
 [![PCWEES Count Badge](https://sloc.xyz/github/tpipernob/PCWEES/?category=lines)](https://github.com/tpipernob/PCWEES/)
 [![PCWEES Count Badge](https://sloc.xyz/github/tpipernob/PCWEES/?category=comments)](https://github.com/tpipernob/PCWEES/)
 [![PCWEES Count Badge](https://sloc.xyz/github/tpipernob/PCWEES/?category=cocomo&avg-wage=52000)](https://github.com/tpipernob/PCWEES/)
+[![PCWEES Python Badge](https://img.shields.io/pypi/pyversions/Django)](https://www.python.org/)
+[![PCWEES Django Badge](https://img.shields.io/pypi/djversions/django-stdimage)](https://www.djangoproject.com/)
+[![PCWEES License Badge](https://img.shields.io/github/license/tpipernob/PCWEES)](https://github.com/tpipernob/PCWEES/blob/main/LICENSE)
 
 # PCWEES
 Trata-se de um portal que catalogará e disponibilizará exemplos trabalhados de projetos de Engenharia de Software que possam ser usados por professores para apoiar o ensino da referida disciplina.
