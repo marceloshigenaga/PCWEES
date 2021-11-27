@@ -152,6 +152,14 @@ class UsuarioCreateView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('login')
     success_message = "Cadastro realizado com sucesso!"
 
+    # seta o usuário no grupo escolhido
+    def form_valid(self, form):
+        group = form.cleaned_data['group']
+        url = super().form_valid(form)
+        self.object.groups.add(group)
+        self.object.save()
+        return url
+
 class UsuarioUpdateView(SuccessMessageMixin, UpdateView):
     template_name = 'usuarioUpdateView.html'
     model = User
