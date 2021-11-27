@@ -4,7 +4,8 @@ from django.contrib import admin
 from django.urls import path, include
 from .views import IndexView, ExemploListView, ExemploDetailView, \
     ExemploCreateView, PadraoCatalogacaoView, ExemploUpdateView, MeusExemplosListView, \
-    ExemploDeleteView, AvaliacaoCreateView, MinhasAvaliacoesListView, AvaliacaoUpdateView, AvaliacaoDeleteView
+    ExemploDeleteView, AvaliacaoCreateView, MinhasAvaliacoesListView, AvaliacaoUpdateView, \
+    AvaliacaoDeleteView, UsuarioCreateView
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
@@ -27,6 +28,7 @@ urlpatterns = [
         template_name='login.html'
     ), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
+    path('registrar/', UsuarioCreateView.as_view(), name='registrar'),
 
 
 ]

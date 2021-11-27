@@ -20,7 +20,7 @@
                                     {% endfor %}
                                 </div>
                             {% endif %}
-                            <h1>Autenticação:</h1>
+                            <h1>Realizar Cadastro:</h1>
                         </div>
                     </div>
                 </div>
@@ -28,18 +28,16 @@
             <!-- /# row -->
             <section id="main-content">
                 <div class="row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-6">
                         <div class="card">
                             <div class="card-title"></div>
                             <div class="card-body">
                                 <form method="POST">
                                     {% csrf_token %}
                                     {{ form|crispy }}
-                                    <button type="submit" class="btn btn-primary">Entrar</button>
+                                    <button type="submit" class="btn btn-primary">Cadastrar</button>
                                     <button type="reset" class="btn btn-warning">Limpar</button>
                                 </form>
-                                <hr>
-                                <p>Não tem conta?<a href="{% url 'registrar' %}"> Criar conta.</a></p>
                             </div>
                         </div>
                     </div>

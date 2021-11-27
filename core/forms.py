@@ -1,5 +1,7 @@
 from django import forms
 from .models import Exemplo, Avaliacao
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User, Group
 
 class ExemploForm(forms.ModelForm):
     class Meta:
@@ -51,7 +53,6 @@ class ExemploForm(forms.ModelForm):
         self.fields['exemplo_material_complementar'].widget.attrs[
             'placeholder'] = 'Indicar materiais que possam ser complementares ao estudo do exemplo, caso existam.'
 
-
 class AvaliacaoForm(forms.ModelForm):
     class Meta:
         model = Avaliacao
@@ -62,6 +63,15 @@ class AvaliacaoForm(forms.ModelForm):
             "avaliacao": "Nota da avaliação:",
         }
 
+
+class UsuarioForm(UserCreationForm):
+    email = forms.EmailField(max_length=150)
+    group = forms.ModelChoiceField(queryset=Group.objects.all(),
+                                   required=True, label='Tipo de usuário')
+
+    class Meta:
+        model = User
+        fields = ['username','first_name','last_name','group', 'email', 'password1', 'password2']
 
 
 

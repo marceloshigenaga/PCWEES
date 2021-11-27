@@ -6,7 +6,9 @@ from .models import Exemplo, Avaliacao
 from .filters import ExemploFilter
 from django.urls import reverse_lazy
 from django.contrib import messages
-from .forms import ExemploForm, AvaliacaoForm
+from .forms import ExemploForm, AvaliacaoForm, UsuarioForm
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.models import User, Group
 
 class IndexView(TemplateView):
     template_name = 'index.html'
@@ -58,6 +60,11 @@ class ExemploUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
         form.instance.autor = self.request.user
         return super().form_valid(form)
 
+    # verifica se é o autor que está fazendo a alteração
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Exemplo, pk=self.kwargs['pk'], autor=self.request.user)
+        return self.object
+
 class ExemploDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Exemplo
     template_name = 'exemploDeleteView.html'
@@ -67,6 +74,11 @@ class ExemploDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super(ExemploDeleteView, self).delete(request, *args, **kwargs)
+
+    # verifica se é o autor que está fazendo a exclusão
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Exemplo, pk=self.kwargs['pk'], autor=self.request.user)
+        return self.object
 
 class MeusExemplosListView(LoginRequiredMixin, ListView):
     model = Exemplo
@@ -86,13 +98,12 @@ class AvaliacaoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     success_message = "Avaliação realizada com sucesso!"
 
     # coloca automaticamente o usuário logado como avaliador
-    # pega o exemplo passado como parâmetro
     def form_valid(self, form):
         form.instance.avaliador = self.request.user
         form.instance.exemplo = Exemplo.objects.get(pk=self.kwargs['pk'])
-        # form.instance.exemplo = self.kwargs['pk']
         return super().form_valid(form)
 
+    # pega o exemplo passado como parâmetro
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['exemplo'] = Exemplo.objects.get(pk=self.kwargs['pk'])
@@ -105,18 +116,10 @@ class AvaliacaoUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     form_class = AvaliacaoForm
     success_message = "Avaliação alterada com sucesso!"
 
-    # coloca automaticamente o usuário logado como avaliador
-    # pega o exemplo passado como parâmetro
-    def form_valid(self, form):
-        form.instance.avaliador = self.request.user
-        form.instance.exemplo = Exemplo.objects.get(pk=self.kwargs['pk'])
-        # form.instance.exemplo = self.kwargs['pk']
-        return super().form_valid(form)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['exemplo'] = Exemplo.objects.get(pk=self.kwargs['pk'])
-        return context
+    # verifica se é o autor que está fazendo a alteração
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Avaliacao, pk=self.kwargs['pk'], avaliador=self.request.user)
+        return self.object
 
 class AvaliacaoDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Avaliacao
@@ -128,6 +131,11 @@ class AvaliacaoDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         messages.success(self.request, self.success_message)
         return super(AvaliacaoDeleteView, self).delete(request, *args, **kwargs)
 
+    # verifica se é o autor que está fazendo a exclusão
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(Avaliacao, pk=self.kwargs['pk'], avaliador=self.request.user)
+        return self.object
+
 class MinhasAvaliacoesListView(LoginRequiredMixin, ListView):
     model = Avaliacao
     context_object_name = 'avaliacao_list'
@@ -137,4 +145,10 @@ class MinhasAvaliacoesListView(LoginRequiredMixin, ListView):
     def get_queryset(self):
         user = self.request.user
         return Avaliacao.objects.filter(avaliador=user)
+
+class UsuarioCreateView(SuccessMessageMixin, CreateView):
+    template_name = 'usuarioCreateView.html'
+    form_class = UsuarioForm
+    success_url = reverse_lazy('login')
+    success_message = "Cadastro realizado com sucesso!"
 
