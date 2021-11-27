@@ -34,7 +34,7 @@ class ExemploDetailView(DetailView):
         context['avaliacoes'] = Avaliacao.objects.filter(exemplo=self.kwargs['pk'])
         return context
 
-class ExemploCreateView(LoginRequiredMixin, CreateView):
+class ExemploCreateView(LoginRequiredMixin, SuccessMessageMixin,  CreateView):
     model = Exemplo
     template_name = 'exemploCreateView.html'
     success_url = reverse_lazy('meusExemplosListView')
@@ -46,7 +46,7 @@ class ExemploCreateView(LoginRequiredMixin, CreateView):
         form.instance.autor = self.request.user
         return super().form_valid(form)
 
-class ExemploUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+class ExemploUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Exemplo
     template_name = 'exemploCreateView.html'
     success_url = reverse_lazy('meusExemplosListView')
@@ -58,7 +58,7 @@ class ExemploUpdateView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
         form.instance.autor = self.request.user
         return super().form_valid(form)
 
-class ExemploDeleteView(LoginRequiredMixin, DeleteView):
+class ExemploDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Exemplo
     template_name = 'exemploDeleteView.html'
     success_url = reverse_lazy('meusExemplosListView')
@@ -78,11 +78,12 @@ class MeusExemplosListView(LoginRequiredMixin, ListView):
         user = self.request.user
         return Exemplo.objects.filter(autor=user)
 
-class AvaliacaoCreateView(LoginRequiredMixin, CreateView):
+class AvaliacaoCreateView(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Avaliacao
     template_name = 'avaliacaoCreateView.html'
     success_url = reverse_lazy('exemploListView')
     form_class = AvaliacaoForm
+    success_message = "Avaliação realizada com sucesso!"
 
     # coloca automaticamente o usuário logado como avaliador
     # pega o exemplo passado como parâmetro
@@ -97,7 +98,7 @@ class AvaliacaoCreateView(LoginRequiredMixin, CreateView):
         context['exemplo'] = Exemplo.objects.get(pk=self.kwargs['pk'])
         return context
 
-class AvaliacaoUpdateView(LoginRequiredMixin, UpdateView):
+class AvaliacaoUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     model = Avaliacao
     template_name = 'avaliacaoCreateView.html'
     success_url = reverse_lazy('minhasAvaliacoesListView')
@@ -117,7 +118,7 @@ class AvaliacaoUpdateView(LoginRequiredMixin, UpdateView):
         context['exemplo'] = Exemplo.objects.get(pk=self.kwargs['pk'])
         return context
 
-class AvaliacaoDeleteView(LoginRequiredMixin, DeleteView):
+class AvaliacaoDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Avaliacao
     template_name = 'avaliacaoDeleteView.html'
     success_url = reverse_lazy('minhasAvaliacoesListView')

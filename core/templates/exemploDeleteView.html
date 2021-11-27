@@ -15,8 +15,7 @@
                             <div class="card-body">
                                 <form method="post">
                                     {% csrf_token %}
-                                    <h4 class="text-danger">Tem certeza que desaja excluir o exemplo "{{ object.titulo
-                                        }}"? </h4>
+                                    <h4 class="text-danger">Tem certeza que desaja excluir o exemplo "{{ object.titulo }}"? </h4>
                                     <button type="submit" class="btn btn-danger">Exluir</button>
                                     <a href="{% url 'meusExemplosListView' %}">
                                         <button type="button" class="btn btn-warning">Cancelar</button>

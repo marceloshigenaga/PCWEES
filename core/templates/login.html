@@ -20,12 +20,7 @@
                                     {% endfor %}
                                 </div>
                             {% endif %}
-                            <h1>Formulário de catalogação do Worked Example</h1>
-                            <p>Este formulário tem como intuito a catalogação de um worked example extraído de um
-                                projeto de software livre, para apoiar no ensino de Engenharia de software. Tendo as
-                                informações do exemplo, você pode dar início ao preenchimento do formulário, lembrando
-                                que, <span class="text-danger">algumas informações são de preenchimento obrigatório (*) </span>,
-                                fique atento(a)!</p>
+                            <h1>Autenticação:</h1>
                         </div>
                     </div>
                 </div>
@@ -33,16 +28,18 @@
             <!-- /# row -->
             <section id="main-content">
                 <div class="row">
-                    <div class="col-lg-12">
+                    <div class="col-lg-4">
                         <div class="card">
-                            <div class="card-title"> </div>
+                            <div class="card-title"></div>
                             <div class="card-body">
                                 <form method="POST">
                                     {% csrf_token %}
                                     {{ form|crispy }}
-                                    <button type="submit" class="btn btn-primary">Salvar</button>
+                                    <button type="submit" class="btn btn-primary">Entrar</button>
                                     <button type="reset" class="btn btn-warning">Limpar</button>
                                 </form>
+                                <hr>
+                                <p>Não tem conta? Criar conta.</p>
                             </div>
                         </div>
                     </div>
@@ -51,6 +48,5 @@
         </div>
     </div>
 </div>
-
 
 {% endblock %}

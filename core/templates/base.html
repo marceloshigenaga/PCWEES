@@ -75,6 +75,7 @@
                     <a href="{% url 'padraoCatalogacao' %}">
                         <i class="ti-check-box"></i> Padrão de Catalogação</a>
                 </li>
+                {% if request.user.is_authenticated %}
                 <li>
                     <a href="{% url 'exemploCreateView' %}">
                         <i class="ti-view-list-alt"></i> Formulário de Catalogação</a>
@@ -87,11 +88,7 @@
                     <a href="{% url 'minhasAvaliacoesListView' %} ">
                         <i class="ti-star"></i> Minhas avaliações</a>
                 </li>
-
-                <li>
-                    <a>
-                        <i class="ti-close"></i> Logout</a>
-                </li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -106,33 +103,32 @@
                         <span class="line"></span>
                         <span class="line"></span>
                         <span class="line"></span>
+                        <br>
                     </div>
                 </div>
                 <div class="float-right">
+                    <div class="page-header">
+                        <div class="page-title">
+                            <br>
+                            {% if request.user.is_authenticated %}
 
-                    <div class="dropdown dib">
-                        <div class="header-icon" data-toggle="dropdown">
-                                <span class="user-avatar">Tiago
-                                    <i class="ti-angle-down f-s-10"></i>
-                                </span>
-                            <div class="drop-down dropdown-profile dropdown-menu dropdown-menu-right">
-                                <div class="dropdown-content-body">
-                                    <ul>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-user"></i>
-                                                <span>Perfil</span>
-                                            </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">
-                                                <i class="ti-power-off"></i>
-                                                <span>Logout</span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                                <i class="ti-user" style="font-size: 18px;"></i>
+                                <span style="font-size: 18px;"> {{ request.user.get_full_name }} | </span>
+
+                            <a href="{% url 'logout' %}" style="font-size: 18px;">
+                                <i class="ti-power-off"></i>
+                                <span> Logout </span>
+                            </a>
+                            {% else %}
+                            <a href="{% url 'login' %}" style="font-size: 18px;">
+                                <i class="ti-power-off" ></i>
+                                <span> Login  | </span>
+                            </a>
+                            <a href="{% url 'login' %}" style="font-size: 18px;">
+                                <i class="ti-user"></i>
+                                <span> Cadastro </span>
+                            </a>
+                            {% endif %}
                         </div>
                     </div>
                 </div>

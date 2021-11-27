@@ -15,8 +15,7 @@
                             <div class="card-body">
                                 <form method="post">
                                     {% csrf_token %}
-                                    <h4 class="text-danger">Tem certeza que desaja excluir a avaliação "{{
-                                        object.comentario }}"? </h4>
+                                    <h4 class="text-danger">Tem certeza que desaja excluir a avaliação "{{ object.comentario }}"? </h4>
                                     <button type="submit" class="btn btn-danger">Exluir</button>
                                     <a href="{% url 'minhasAvaliacoesListView' %}">
                                         <button type="button" class="btn btn-warning">Cancelar</button>

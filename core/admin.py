@@ -4,7 +4,9 @@ from .models import Exemplo, Topico_swebook_1, Topico_swebook_2, Topico_swebook_
 
 @admin.register(Exemplo)
 class ExemploAdmin(admin.ModelAdmin):
-    list_display = ('titulo',)
+    list_display = ('titulo','autor')
+    search_fields = ('titulo', 'autor', 'projeto_nome', 'projeto_descricao')
+    list_filter = ('autor','projeto_linguagem_programacao', 'topico_swebook_1')
 
 @admin.register(Topico_swebook_1)
 class Topico_swebook_1Admin(admin.ModelAdmin):
@@ -26,4 +28,5 @@ class Topico_swebook_3Admin(admin.ModelAdmin):
 @admin.register(Avaliacao)
 class AvaliacaoAdmin(admin.ModelAdmin):
     list_display = ('exemplo', 'avaliacao', 'avaliador', 'comentario')
+    list_filter = ('avaliador', )
 
