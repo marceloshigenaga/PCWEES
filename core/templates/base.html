@@ -89,6 +89,12 @@
                         <i class="ti-star"></i> Minhas avaliações</a>
                 </li>
                 {% endif %}
+                {% if request.user.is_staff %}
+                <li>
+                    <a href="{% url 'admin:index' %} ">
+                        <i class="ti-settings"></i> Administração</a>
+                </li>
+                {% endif %}
             </ul>
         </div>
     </div>
@@ -111,10 +117,10 @@
                         <div class="page-title">
                             <br>
                             {% if request.user.is_authenticated %}
-
-                                <i class="ti-user" style="font-size: 18px;"></i>
+                            <a href="{% url 'usuarioUpdateView' user.pk %}" style="font-size: 18px;">
+                                <i class="ti-user"></i>
                                 <span style="font-size: 18px;"> {{ request.user.get_full_name }} | </span>
-
+                            </a>
                             <a href="{% url 'logout' %}" style="font-size: 18px;">
                                 <i class="ti-power-off"></i>
                                 <span> Logout </span>
@@ -124,7 +130,7 @@
                                 <i class="ti-power-off" ></i>
                                 <span> Login  | </span>
                             </a>
-                            <a href="{% url 'registrar' %}" style="font-size: 18px;">
+                            <a href="{% url 'usuarioCreateView' %}" style="font-size: 18px;">
                                 <i class="ti-user"></i>
                                 <span> Cadastro </span>
                             </a>

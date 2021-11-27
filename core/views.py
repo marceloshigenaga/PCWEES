@@ -152,3 +152,14 @@ class UsuarioCreateView(SuccessMessageMixin, CreateView):
     success_url = reverse_lazy('login')
     success_message = "Cadastro realizado com sucesso!"
 
+class UsuarioUpdateView(SuccessMessageMixin, UpdateView):
+    template_name = 'usuarioUpdateView.html'
+    model = User
+    form_class = UsuarioForm
+    success_url = reverse_lazy('index')
+    success_message = "Cadastro alterado com sucesso!"
+
+    # verifica se é o próprio usuário que está fazendo a alteração
+    def get_object(self, queryset=None):
+        self.object = get_object_or_404(User, pk=self.request.user.pk)
+        return self.object
