@@ -14,16 +14,11 @@ class ExemploFilter(django_filters.FilterSet):
     linguagem = django_filters.CharFilter(field_name='projeto_linguagem_programacao',
                                           label="Linguagem de programação",
                                           lookup_expr='icontains')
-    #todos_campos = django_filters.CharFilter(method='todos_campos_filter', label="Todos os campos")
 
 
     class Meta:
         model = Exemplo
         fields = ('titulo', 'swebook', 'tags', 'linguagem')
-
-    def todos_campos_filter(self, queryset, name, value):
-        return Exemplo.objects.filter(
-            Q(titulo__icontains=value) | Q(outros_topicos__icontains=value) | Q(projeto_nome__icontains=value))
 
     def tags_filter(self, queryset, name, value):
         return Exemplo.objects.filter(

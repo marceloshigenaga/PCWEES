@@ -63,10 +63,9 @@ class AvaliacaoForm(forms.ModelForm):
             "avaliacao": "Nota da avaliação:",
         }
 
-
 class UsuarioForm(UserCreationForm):
     email = forms.EmailField(max_length=150)
-    group = forms.ModelChoiceField(queryset=Group.objects.all(),
+    group = forms.ModelChoiceField(queryset=Group.objects.exclude(name='Professor Validado'),
                                    required=True, label='Tipo de usuário')
 
     class Meta:

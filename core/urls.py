@@ -1,6 +1,3 @@
-from django.contrib import admin
-from django.urls import path, include
-from django.contrib import admin
 from django.urls import path, include
 from .views import IndexView, ExemploListView, ExemploDetailView, \
     ExemploCreateView, PadraoCatalogacaoView, ExemploUpdateView, MeusExemplosListView, \
@@ -24,12 +21,8 @@ urlpatterns = [
     path('avaliacaoUpdateView/<int:pk>/', AvaliacaoUpdateView.as_view(), name='avaliacaoUpdateView'),
     path('avaliacaoDeleteView/<int:pk>/', AvaliacaoDeleteView.as_view(), name='avaliacaoDeleteView'),
     #visitante
-    path('login/', auth_views.LoginView.as_view(
-        template_name='login.html'
-    ), name='login'),
+    path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(), name='logout'),
     path('usuarioCreateView/', UsuarioCreateView.as_view(), name='usuarioCreateView'),
     path('usuarioUpdateView/<int:pk>/', UsuarioUpdateView.as_view(), name='usuarioUpdateView'),
-
-
 ]
